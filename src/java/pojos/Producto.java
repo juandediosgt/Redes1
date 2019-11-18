@@ -15,7 +15,7 @@ public class Producto {
     private float precio_compra;
     private float precio_venta;
     private int cantidad_existencia;
-    private int idproveedor;
+    private String idproveedor;
     private String proveedor;
     private int idcategoria;
     private String categoria;
@@ -27,7 +27,7 @@ public class Producto {
     public Producto(  ) {
         
     }
-    public Producto(String nombre, String descripcion, float precio_compra, float precio_venta, int cantidad_existencia, int idproveedor, String proveedor, int idcategoria,String categoria, int idestado, String estado){
+    public Producto(String nombre, String descripcion, float precio_compra, float precio_venta, int cantidad_existencia, String idproveedor, String proveedor, int idcategoria,String categoria, int idestado, String estado){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio_compra = precio_compra;
@@ -122,11 +122,11 @@ public class Producto {
         this.idestado = idestado;
     }
 
-    public int getIdproveedor() {
+    public String getIdproveedor() {
         return idproveedor;
     }
 
-    public void setIdproveedor(int idproveedor) {
+    public void setIdproveedor(String idproveedor) {
         this.idproveedor = idproveedor;
     }
     

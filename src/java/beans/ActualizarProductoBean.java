@@ -143,7 +143,7 @@ public class ActualizarProductoBean {
             this.setPrecio_compra(producto.getPrecio_compra());
             this.setCantidad_existencia(producto.getCantidad_existencia());
             this.setProveedor(producto.getProveedor());
-            this.setCategoria(producto.getCategoria());
+            this.setCategoria(producto.getIdcategoria());
             this.setId_estado(producto.getIdestado());
         }else {    
             limpiarCampos();

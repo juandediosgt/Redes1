@@ -64,7 +64,7 @@ public class ConsultarProductoBean {
                     rs.getFloat("Precio_Compra"),
                     rs.getFloat("Precio_Venta"),
                     rs.getInt("Existencia"),
-                    rs.getInt("id_proveedor"),
+                    rs.getString("id_proveedor"),
                     rs.getString("Proveedor"),
                     rs.getInt("id_categoria"),
                     rs.getString("Categoria"),

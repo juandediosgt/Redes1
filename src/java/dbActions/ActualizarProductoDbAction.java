@@ -49,7 +49,7 @@ public class ActualizarProductoDbAction {
                     resultado.setPrecio_compra(rs.getInt("precio_compra"));
                     resultado.setCantidad_existencia(rs.getInt("cantidad_existencia"));
                     resultado.setProveedor(rs.getString("id_proveedor"));
-                    resultado.setCategoria(rs.getInt("id_categoria"));
+                    resultado.setIdcategoria(rs.getInt("id_categoria"));
                     resultado.setIdestado(rs.getInt("id_estado"));
                 }
             }
