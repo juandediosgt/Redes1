@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+     <script language="javascript" type="text/javascript">
+
+            //* Este Codigo permite Validar que sea un campo Numerico
+            function Solo_Numerico(variable) {
+                Numer = parseInt(variable);
+                if (isNaN(Numer)) {
+                    return "";
+                }
+                return Numer;
+            }
+            function ValNumero(Control) {
+                Control.value = Solo_Numerico(Control.value);
+            }
+            //* Fin del Codigo para Validar que sea un campo Numerico
+        </script>
+        <script type="text/javascript">
+            //* Este Codigo permite Validar que sea un campo de solo texto
+            function validar(e) { // 1
+                tecla = (document.all) ? e.keyCode : e.which; // 2
+                if (tecla == 8)
+                    return true; // 3
+                patron = /[A-Za-z\sáéíóú]/; // 4
+                te = String.fromCharCode(tecla); // 5
+                return patron.test(te); // 6
+            }
+        </script>
+        <br/>
+        <br/>
+        <div align="center" style="margin-top: 50px; margin-right: 50px">
+            <h2 style="color: white">Sistema de gestión de Inventarios</h2>
+            <h1 style="color: white">Actualizar Producto</h1>
+            <h:form id="actProductoForm">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 600px">
+                    <table align="center" cellspacing="20" style=" font-weight: bold; color: #0075A2">
+                        <tr align="left">
+                            <td >
+                                <p:outputLabel value= "Nombre Producto"/>
+                                <br/>
+                                <p:inputText disabled="#{actualizarProductoBean.actNombre}" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; "  onkeypress="return validar(event)" value="#{actualizarProductoBean.nombre}"/>
+                            </td>   
+                            <td>
+                                <p:commandButton icon="ui-icon-search" action="#{actualizarProductoBean.consultarProducto()}" title="Presione el botón para buscar el producto que desea actualizar" update="actProductoForm"  style="font-weight: bold;color: white" />
+                                <p:commandButton value="Nueva Busqueda" action="#{actualizarProductoBean.nuevaBusqueda()}" title="Presione el botón para nueva busqueda de producto" update="actProductoForm"  style=" font-weight: bold;color: #0075A2" />
+                            </td>
+                        </tr>
+                        <tr align="left">
+                             <td>
+                                <p:outputLabel value= "Categoría"/>
+                                <br/>
+                                <p:selectOneMenu disabled="#{actualizarProductoBean.actCategoria}" id="categoria" value="#{actualizarProductoBean.categoria}" style="width: 175px" >
+                                    <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
+                                    <f:selectItems value="#{actualizarProductoBean.listaCategorias}"  />
+                                </p:selectOneMenu>
+                            </td>
+                            <td>
+                                <p:outputLabel value= "Proveedor"/>
+                                <br/>
+                                <p:selectOneMenu id="proveedor" disabled="#{actualizarProductoBean.actProveedor}" value="#{actualizarProductoBean.proveedor}" style="width: 175px" >
+                                    <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
+                                    <f:selectItems value="#{actualizarProductoBean.listaProveedor}"  />
+                                </p:selectOneMenu>
+                            </td>
+                           
+                        </tr>
+                        <tr  align="left">
+                            <td>
+                                <p:outputLabel value= "Precio Compra"/>
+                                <br/>
+                                <p:inputNumber disabled="#{actualizarProductoBean.actPrecio_compra}"  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" value="#{actualizarProductoBean.precio_compra}"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value= "Precio Venta"/>
+                                <br/>
+                                <p:inputNumber disabled="#{actualizarProductoBean.actPrecio_venta}" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" value="#{actualizarProductoBean.precio_venta}"/>
+                            </td>
+                        </tr>
+                        <tr align="left">
+                            <td >
+                                <p:outputLabel value= "Descripción de Producto"/>
+                                <br/>
+                                <p:inputText disabled="#{actualizarProductoBean.actDescripcion}" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; "  value="#{actualizarProductoBean.descripcion}"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value= "Existencias del Producto"/>
+                                <br/>
+                                <p:inputText disabled="#{actualizarProductoBean.actCantidad}" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " onkeyup="return ValNumero(this);" value="#{actualizarProductoBean.cantidad_existencia}"/>
+                            </td>
+                        </tr>
+                        <tr align="left">
+                             <td>
+                                <p:outputLabel value= "Estado del producto"/>
+                                <br/>
+                                <p:selectOneMenu id="estado" disabled="#{actualizarProductoBean.actEstado}" value="#{actualizarProductoBean.id_estado}" style="width: 175px" >
+                                    <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
+                                    <f:selectItems value="#{actualizarProductoBean.listaEstado}"  />
+                                </p:selectOneMenu>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="4">
+                                <p:commandButton value="Actualizar Producto" action="#{actualizarProductoBean.ActProducto()}" update="actProductoForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
+                            </td>
+                        </tr>
+                        <tr border="1px">
+                            <td colspan="4" align="right">
+                                <p:commandLink update="actProductoForm, growl" action="#{actualizarProductoBean.irmenuProducto()}" title="Presione el boton para regresar al Ménu Producto">
+                                    <p:graphicImage value="/Images/icon_atras.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                                 <br/>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>
