@@ -54,6 +54,10 @@
             <to-view-id>/menuProducto.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>proveedor</from-outcome>
+            <to-view-id>/MenuProveedores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>error</from-outcome>
             <to-view-id>/moduloCompras.xhtml</to-view-id>
         </navigation-case>
@@ -130,6 +134,26 @@
         <navigation-case>
             <from-outcome>atras</from-outcome>
             <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+        <from-view-id>/MenuProveedores.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>nuevo</from-outcome>
+            <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>consulta</from-outcome>
+            <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizar</from-outcome>
+            <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/moduloCompras.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -257,6 +281,18 @@
         <description>ManagedBean que gestiona la actualizacion del producto a nivel de modelo</description>
         <managed-bean-name>consultarProductoDbAction</managed-bean-name>
         <managed-bean-class>dbActions.ConsultarProductoDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Pojo que contiene la estructura de un proveedor</description>
+        <managed-bean-name>proveedor</managed-bean-name>
+        <managed-bean-class>pojos.Proveedor</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del menu proveedor</description>
+        <managed-bean-name>menuProveedorBean</managed-bean-name>
+        <managed-bean-class>beans.MenuProveedorBean</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
 </faces-config>

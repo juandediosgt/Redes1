@@ -26,4 +26,8 @@ public class ModuloComprasBean implements Serializable {
         String resultado="producto";
         return resultado;
     }
+    public String irProveedor(){
+        String resultado="proveedor";
+        return resultado;
+    }
 }
