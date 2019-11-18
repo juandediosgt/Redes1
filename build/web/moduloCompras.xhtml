@@ -11,7 +11,8 @@
         <br/>
         <br/>
         <br/>
-        
+        <br/>
+        <br/>
          <div align="center" style="margin-top: 50px; margin-right: 50px">
              
             <h1 style="color: white">MÓDULO COMPRAS</h1>
@@ -27,14 +28,6 @@
                                 <br/>
                                 <p:outputLabel value= "Inventario"/>
                             </td>   
-                        </tr>
-                        <tr>
-                            <td> 
-                            </td>
-                            <td> 
-                            </td>
-                            </tr>
-                        <tr>
                             <td>
                                 <p:commandLink update="modulocomprasForm, growl" action="#{menuPrincipalBean.irFacturaCompra()}" title="Presione el boton para dirigirte a Factura Compra">
                                     <p:graphicImage value="/Images/icon_facturaCompra.png" width="80px" height="80px"/>
@@ -46,9 +39,7 @@
                         <tr>
                             <td> 
                             </td>
-                            <td> 
-                            </td>
-                            </tr>
+                        </tr>
                         <tr>
                             <td>
                                     <p:commandLink update="modulocomprasForm, growl" action="#{moduloComprasBean.irProductos()}" title="Presione el boton para dirigirte a Menú Producto">
@@ -57,11 +48,16 @@
                                 <br/>
                                 <p:outputLabel value= "Producto"/>
                             </td>
+                            <td>
+                                <p:commandLink update="modulocomprasForm, growl" action="#{moduloComprasBean.irProveedor()}" title="Presione el boton para dirigirte a Menú Producto">
+                                    <p:graphicImage value="/Images/icon_proveedor.png" width="80px" height="80px"/>
+                                </p:commandLink>
+                                <br/>
+                                <p:outputLabel value= "Proveedores"/>
+                            </td>
                         </tr>
                         <tr>
                             <td>   
-                            </td>
-                            <td>
                             </td>
                         </tr>
                         <tr border="1px">
