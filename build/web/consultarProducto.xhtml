@@ -11,6 +11,9 @@
             <h1 style="color: white">Consultar Producto</h1>
             <br/>
         <h:form>
+             <p:commandLink action="#{consultarProductoBean.home()}">
+                <p:graphicImage value="/Images/icon_atras.png" width="100px" height="100px"/>
+            </p:commandLink>
             <p:dataTable value="#{consultarProductoBean.listar()}" var="p">
                 
                 <p:column headerText="Nombre" filterBy="#{p.nombre}" filterMatchMode="contains">
@@ -19,23 +22,14 @@
                 <p:column headerText="Descripcion" filterBy="#{p.descripcion}">
                     <p:outputLabel value="#{p.descripcion}"/>
                 </p:column>
-                <p:column headerText="Precio Compra">
-                    <p:outputLabel value="#{p.precio_compra}" />
-                </p:column>
                 <p:column headerText="Precio Venta">
                     <p:outputLabel value="#{p.precio_venta}"/>
-                </p:column>
-                <p:column headerText="Existencia">
-                    <p:outputLabel value="#{p.cantidad_existencia}"/>
                 </p:column>
                 <p:column headerText="Proveedor" filterBy="#{p.proveedor}" >
                     <p:outputLabel value="#{p.proveedor}"/>
                 </p:column>
                 <p:column headerText="Categoria" filterBy="#{p.categoria}" >
                     <p:outputLabel value="#{p.categoria}"/>
-                </p:column>
-                <p:column headerText="Estado" filterBy="#{p.estado}" >
-                    <p:outputLabel value="#{p.estado}"/>
                 </p:column>
             </p:dataTable>
         </h:form>

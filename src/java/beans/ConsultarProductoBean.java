@@ -80,4 +80,8 @@ public class ConsultarProductoBean {
         }        
         return ListaProducto;
     }
+    
+    public String home(){
+        return "regresar";
+    }
 }

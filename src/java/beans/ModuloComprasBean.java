@@ -30,4 +30,10 @@ public class ModuloComprasBean implements Serializable {
         String resultado="proveedor";
         return resultado;
     }
+    public String irInventario(){
+        String resultado="inventario";
+        return resultado;
+    }
+    
+    
 }

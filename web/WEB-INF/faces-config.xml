@@ -137,6 +137,22 @@
         </navigation-case>
     </navigation-rule>
     
+    <navigation-rule>
+        <from-view-id>/inventario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/moduloCompras.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/consultarProducto.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
      <navigation-rule>
         <from-view-id>/MenuProveedores.xhtml</from-view-id>
         <navigation-case>
@@ -293,6 +309,18 @@
         <description>Bean que gestiona la logica del menu proveedor</description>
         <managed-bean-name>menuProveedorBean</managed-bean-name>
         <managed-bean-class>beans.MenuProveedorBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona los metodos de la vista inventario</description>
+        <managed-bean-name>inventarioBean</managed-bean-name>
+        <managed-bean-class>beans.InventarioBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Db action que maneja las conexiones a la base de datos que se necesitan en el inventario</description>
+        <managed-bean-name>inventarioDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.inventarioDbAction</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
 </faces-config>
