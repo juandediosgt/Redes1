@@ -22,5 +22,9 @@ public class ModuloVentasBean implements Serializable{
         String resultado="regresar";
         return resultado;
     }
+    public String menuProducto(){
+        String resultado="producto";
+        return resultado;
+    }
     
 }

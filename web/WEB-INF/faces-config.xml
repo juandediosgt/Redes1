@@ -66,10 +66,13 @@
             <to-view-id>/menuPrincipal.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/moduloCompras.xhtml</to-view-id>
+            <from-outcome>producto</from-outcome>
+            <to-view-id>/menuProducto.xhtml</to-view-id>
         </navigation-case>
-        
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/moduloVentas.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/nuevoUsuario.xhtml</from-view-id>
