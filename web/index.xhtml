@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+   <h:head>
+        <title>Iniciar Sesión</title>
+        <link href="estilos.css" rel="stylesheet"/>
+    </h:head>
+    <h:body style=" background-image: url(https://get.wallhere.com/photo/simple-background-blue-background-vector-graphics-abstract-1385427.jpg) ; background-size: auto">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div align="center" style=" margin-top: 50px; margin-right: 50px; background: transparent">
+            <h:form id="loginForm">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                    <p:graphicImage value="/Images/loading3.gif" width="150" height="150"/>
+                </p:dialog>
+                <p:panel style="border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color:white; width: 400px">
+                    <h3 style="color: #0075A2">Redes de computación 1</h3>
+                    <h2 style="color: #0075A2">Sistema de gestión de Inventarios</h2>
+                    <p:graphicImage height="240" width="256" value="/Images/Icon_inventario.png"/>
+                    <br/>
+                    <table align="center" cellspacing="20" style=" font-weight: bold;color: #0075A2">
+                        <tr>
+                            <td>
+                                <p:outputLabel value="UserName"/>
+                            </td>
+                            <td>
+                                <p:inputText  class="Usuario" id="txtUser" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " value="#{indexBean.login_name}"/>
+                               
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Password"/>
+                            </td>
+                            <td>
+                                <p:password  class="contraseña" id="txtPassword" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " value="#{indexBean.password}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                 <p:commandLink update="loginForm, growl" action="#{indexBean.validarUsuario()}" title="Presione el boton para ingresar al sistema">
+                                    <p:graphicImage value="/Images/icon_registro.png" width="60px" height="60px"/>
+                                </p:commandLink>
+                              
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>
+        <br />
+   
+    </h:body>
+</html>
+

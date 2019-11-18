@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>usuario</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>cambiocontrasena</from-outcome>
+            <to-view-id>/cambioPassword.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+        <from-view-id>/menuPrincipal.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>compras</from-outcome>
+            <to-view-id>/moduloCompras.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ventas</from-outcome>
+            <to-view-id>/moduloVentas.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>Cerrar</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nuevoUsuario</from-outcome>
+            <to-view-id>/nuevoUsuario.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/moduloCompras.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>producto</from-outcome>
+            <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/moduloCompras.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/moduloVentas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/moduloCompras.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/nuevoUsuario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/moduloCompras.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/cambioPassword.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/cambioPassword.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+      <navigation-rule>
+        <from-view-id>/menuProducto.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>nuevo</from-outcome>
+            <to-view-id>/nuevoProducto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>consulta</from-outcome>
+            <to-view-id>/consultarProducto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>actualizar</from-outcome>
+            <to-view-id>/actualizarProducto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/moduloCompras.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/nuevoProducto.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/actualizarProducto.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>atras</from-outcome>
+            <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <managed-bean>
+        <description>Bean que gestiona la logica del login</description>
+        <managed-bean-name>indexBean</managed-bean-name>
+        <managed-bean-class>beans.indexBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean encargado de gestionar el login a nivel del modelo</description>
+        <managed-bean-name>indexDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.indexDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Pojo que contiene la estructura de un usuario</description>
+        <managed-bean-name>usuario</managed-bean-name>
+        <managed-bean-class>pojos.Usuario</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del menu principal</description>
+        <managed-bean-name>menuPrincipalBean</managed-bean-name>
+        <managed-bean-class>beans.MenuPrincipalBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del modulo Compras</description>
+        <managed-bean-name>moduloComprasBean</managed-bean-name>
+        <managed-bean-class>beans.ModuloComprasBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del Modulo de Ventas</description>
+        <managed-bean-name>moduloVentasBean</managed-bean-name>
+        <managed-bean-class>beans.ModuloVentasBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica de Nuevo Usuario al sistema</description>
+        <managed-bean-name>nuevoUsuarioBean</managed-bean-name>
+        <managed-bean-class>beans.NuevoUsuarioBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagesBean encargado de gestionar el login a nivel de modelo</description>
+        <managed-bean-name>nuevoUsuarioDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.NuevoUsuarioDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del cambio de password en primer inicio de sesion</description>
+        <managed-bean-name>menuCambiarPasswBean</managed-bean-name>
+        <managed-bean-class>beans.MenuCambiarPasswBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean encargador de gestionar el cambio de password en primer Inicio se sesion</description>
+        <managed-bean-name>menuCambiarPasswDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.MenuCambiarPasswDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la sesion del usuario</description>
+        <managed-bean-name>loginControllerBeen</managed-bean-name>
+        <managed-bean-class>beans.loginControllerBeen</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del cambio de password</description>
+        <managed-bean-name>cambioPasswordBean</managed-bean-name>
+        <managed-bean-class>beans.CambioPasswordBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean que gestiona el cambio de contraseña a nivel de modelo</description>
+        <managed-bean-name>cambioPasswordDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.CambioPasswordDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del menu de producto</description>
+        <managed-bean-name>menuProductoBean</managed-bean-name>
+        <managed-bean-class>beans.MenuProductoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica de agregar producto</description>
+        <managed-bean-name>nuevoProductoBean</managed-bean-name>
+        <managed-bean-class>beans.NuevoProductoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean qeu gestiona el nuevo producto del sistema a nivel de modelo</description>
+        <managed-bean-name>nuevoProductoDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.NuevoProductoDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Pojo que contiene la estructura de un producto</description>
+        <managed-bean-name>producto</managed-bean-name>
+        <managed-bean-class>pojos.Producto</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del actualizar un producto</description>
+        <managed-bean-name>actualizarProductoBean</managed-bean-name>
+        <managed-bean-class>beans.ActualizarProductoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean que gestina el actualizar los productos a nivel de modelo</description>
+        <managed-bean-name>actualizarProductoDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.ActualizarProductoDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica de consultar un producto</description>
+        <managed-bean-name>consultarProductoBean</managed-bean-name>
+        <managed-bean-class>beans.ConsultarProductoBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean que gestiona la actualizacion del producto a nivel de modelo</description>
+        <managed-bean-name>consultarProductoDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.ConsultarProductoDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+</faces-config>

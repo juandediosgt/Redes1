@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="content" >
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div align="center" style="margin-top: 50px; margin-right: 50px">
+            <h2 style="color: white">Sistema de gestión de Inventarios</h2>
+            <h1 style="color: white">Menú Producto</h1>
+            <h:form id="menuProductoForm">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 400px">
+                    <table align="center" cellspacing="20" style=" font-weight: bold; color: #0075A2">
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuProductoForm, growl" action="#{menuProductoBean.irNuevoProducto()}" title="Presione el boton para dirigirte a Módulo de ventas">
+                                    <p:graphicImage value="/Images/iconNuevoProducto.png" width="80px" height="80px"/>
+                                </p:commandLink>
+                                <br/>
+                                <p:outputLabel value= "Nuevo Producto"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuProductoForm, growl" action="#{menuProductoBean.irConsultarProducto()}" title="Presione el boton para dirigirte a Módulo de ventas">
+                                    <p:graphicImage value="/Images/iconConsultaProducto.png" width="80px" height="80px"/>
+                                </p:commandLink>
+                                <br/>
+                                <p:outputLabel value= "Consultar Producto"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuProductoForm, growl" action="#{menuProductoBean.irActualizarProducto()}" title="Presione el boton para dirigirte a Módulo de ventas">
+                                    <p:graphicImage value="/Images/iconActProducto.png" width="80px" height="80px"/>
+                                </p:commandLink>
+                                <br/>
+                                <p:outputLabel value="Actualizar Producto"/>
+                            </td>                       
+                        </tr>
+                        <tr border="1px">
+                            <td colspan="4" align="right">
+                                <p:commandLink update="menuProductoForm, growl" action="#{moduloComprasBean.irMenuPrincipal()}" title="Presione el boton para regresar al Ménu Principal">
+                                    <p:graphicImage value="/Images/icon_atras.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                                 <br/>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="content">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div align="center" style="margin-top: 50px; margin-right: 50px">
+            <h2 style="color: white">Sistema de gestión de Inventarios</h2>
+            <h1 style="color: white">Agregar Nuevo Usuario</h1>
+            <h:form id="menuNuevoUsuarioForm">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 400px">
+                    <br/>
+                    <p:graphicImage height="110" width="110" value="/Images/icon_Usuario.png"/>
+                    <br/>
+                    <table align="center" cellspacing="20" style=" font-weight: bold; color: #0075A2">
+                       <tr>
+                            <td>
+                                <p:outputLabel value="UserName"/>
+                            </td>
+                            <td>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" value="#{nuevoUsuarioBean.login_name}"/>
+                            </td> 
+                        </tr>
+                        <tr>
+                             <td>
+                                <p:outputLabel value="Contraseña"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="La contraseña es por defecto el UserName, se modificará en el primer inicio de sesión"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Nombre"/>
+                            </td>
+                            <td>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" value="#{nuevoUsuarioBean.nombre}" />
+                            </td>
+                          
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Apellido"/>
+                            </td>
+                            <td>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" value="#{nuevoUsuarioBean.apellido}"  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="center">
+                                <p:commandButton value="Registrar" action="#{nuevoUsuarioBean.validarUsuario()}" update="menuNuevoUsuarioForm" style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
+                            </td>
+                        </tr>
+                        <tr border="1px">
+                            <td colspan="4" align="right">
+                                <p:commandLink update="menuNuevoUsuarioForm, growl" action="#{nuevoUsuarioBean.irMenuPrincipal()}" title="Presione el boton para regresar al Ménu Principal">
+                                    <p:graphicImage value="/Images/icon_atras.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                                 <br/>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>

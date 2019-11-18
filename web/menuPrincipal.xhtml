@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns="http://www.w3.org/1999/xhtml">
+    
+    <ui:define name="content">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+       <div align="center" style="margin-top: 50px; margin-right: 50px">
+            <h1 style="color: white">MENÚ PRINCIPAL</h1>
+            <h:form id="menuForm">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 400px">
+                    <table align="center" cellspacing="20" style=" font-weight: bold; color: #0075A2">
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuForm, growl" action="#{menuPrincipalBean.irventas()}" title="Presione el boton para dirigirte a Módulo de ventas">
+                                    <p:graphicImage value="/Images/icon_venta.png" width="80px" height="80px"/>
+                                </p:commandLink>
+                                <br/>
+                                <p:outputLabel value= "Módulo de Ventas"/>
+                            </td>                  
+                        </tr>
+                        <tr>
+                            <td>   
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuForm, growl" action="#{menuPrincipalBean.irCompras()}" title="Presione el boton para dirigirte a Módulo de compras">
+                                    <p:graphicImage value="/Images/icon_compra.png" width="80px" height="80px"/>
+                                </p:commandLink>
+                                <br/>
+                                <p:outputLabel value= "Módulo de Compras"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>   
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:commandLink update="menuForm, growl" action="#{menuPrincipalBean.nuevoUsuario()}" title="Presione el boton para dirigirte a Agregar Nuevo Usuario al Sitema">
+                                    <p:graphicImage value="/Images/icon_nuevoUsuario.png" width="80px" height="80px"/>
+                                </p:commandLink>
+                                <br/>
+                                <p:outputLabel value= "Agregar Nuevo Usuario"/>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>   
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr border="1px">
+                            <td colspan="4" align="right">
+                                <p:commandLink update="menuForm, growl" action="#{menuPrincipalBean.cerrarSesion()}" title="Presione el boton para Cerrar Sesión">
+                                    <p:graphicImage value="/Images/icon_cerrar.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                                 <br/>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>
