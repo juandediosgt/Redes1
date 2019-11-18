@@ -19,13 +19,13 @@
                 <p:column headerText="Descripcion" filterBy="#{p.descripcion}">
                     <p:outputLabel value="#{p.descripcion}"/>
                 </p:column>
-                <p:column headerText="Precio Compra" filterBy="#{p.precio_compra}">
+                <p:column headerText="Precio Compra">
                     <p:outputLabel value="#{p.precio_compra}" />
                 </p:column>
-                <p:column headerText="Precio Venta" filterBy="#{p.precio_venta}">
+                <p:column headerText="Precio Venta">
                     <p:outputLabel value="#{p.precio_venta}"/>
                 </p:column>
-                <p:column headerText="Existencia" filterBy="#{p.cantidad_existencia}">
+                <p:column headerText="Existencia">
                     <p:outputLabel value="#{p.cantidad_existencia}"/>
                 </p:column>
                 <p:column headerText="Proveedor" filterBy="#{p.proveedor}" >
@@ -34,8 +34,8 @@
                 <p:column headerText="Categoria" filterBy="#{p.categoria}" >
                     <p:outputLabel value="#{p.categoria}"/>
                 </p:column>
-                <p:column headerText="Estado" filterBy="#{p.id_estado}" >
-                    <p:outputLabel value="#{p.id_estado}"/>
+                <p:column headerText="Estado" filterBy="#{p.estado}" >
+                    <p:outputLabel value="#{p.estado}"/>
                 </p:column>
             </p:dataTable>
         </h:form>

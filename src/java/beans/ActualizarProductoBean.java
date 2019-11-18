@@ -144,7 +144,7 @@ public class ActualizarProductoBean {
             this.setCantidad_existencia(producto.getCantidad_existencia());
             this.setProveedor(producto.getProveedor());
             this.setCategoria(producto.getCategoria());
-            this.setId_estado(producto.getId_estado());
+            this.setId_estado(producto.getIdestado());
         }else {    
             limpiarCampos();
             Messages.errorMessage("Error", "Alumno no encontrado");

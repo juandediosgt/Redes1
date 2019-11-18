@@ -50,7 +50,7 @@ public class ActualizarProductoDbAction {
                     resultado.setCantidad_existencia(rs.getInt("cantidad_existencia"));
                     resultado.setProveedor(rs.getString("id_proveedor"));
                     resultado.setCategoria(rs.getInt("id_categoria"));
-                    resultado.setId_estado(rs.getInt("id_estado"));
+                    resultado.setIdestado(rs.getInt("id_estado"));
                 }
             }
             else{

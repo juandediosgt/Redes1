@@ -15,24 +15,30 @@ public class Producto {
     private float precio_compra;
     private float precio_venta;
     private int cantidad_existencia;
+    private int idproveedor;
     private String proveedor;
-    private int categoria;
-    private int id_estado;
+    private int idcategoria;
+    private String categoria;
+    private int idestado;
+    private String estado;
     /**
      * Creates a new instance of Producto
      */
     public Producto(  ) {
         
     }
-    public Producto(String nombre, String descripcion, float precio_compra, float precio_venta, int cantidad_existencia, String proveedor, int categoria, int id_estado){
+    public Producto(String nombre, String descripcion, float precio_compra, float precio_venta, int cantidad_existencia, int idproveedor, String proveedor, int idcategoria,String categoria, int idestado, String estado){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio_compra = precio_compra;
         this.precio_venta = precio_venta;
         this.cantidad_existencia = cantidad_existencia;
+        this.idproveedor = idproveedor;
         this.proveedor = proveedor;
+        this.idcategoria = idcategoria;
         this.categoria = categoria;
-        this.id_estado = id_estado;
+        this.idestado = idestado;
+        this.estado= estado;
     }
 
     public String getNombre() {
@@ -83,20 +89,45 @@ public class Producto {
         this.proveedor = proveedor;
     }
 
-    public int getCategoria() {
+    public int getIdcategoria() {
+        return idcategoria;
+    }
+
+    public void setIdcategoria(int idcategoria) {
+        this.idcategoria = idcategoria;
+    }
+
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(int categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-    public int getId_estado() {
-        return id_estado;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setId_estado(int id_estado) {
-        this.id_estado = id_estado;
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+
+    public int getIdestado() {
+        return idestado;
+    }
+
+    public void setIdestado(int idestado) {
+        this.idestado = idestado;
+    }
+
+    public int getIdproveedor() {
+        return idproveedor;
+    }
+
+    public void setIdproveedor(int idproveedor) {
+        this.idproveedor = idproveedor;
     }
     
 }

@@ -35,39 +35,46 @@ public class ConsultarProductoBean {
             Conexion conexion = new Conexion();
             conn = conexion.connect();
             Statement st = conn.createStatement();
-            String sql = "SELECT producto.nombre AS 'Nombre',\n" +
-            "producto.descripcion AS 'Descripcion',\n" +
-            "producto.precio_compra AS 'Precio_Compra',\n" +
-            "producto.precio_venta AS 'Precio_Venta',\n" +
-            "producto.cantidad_existencia AS 'Existencia',\n" +
-            "proveedores.nombre AS 'Proveedor',\n" +
-            "categoria.nombre AS 'Categoria',\n" +
-            "estado.descripcion AS 'Estado'\n" +
-            "\n" +
-            "FROM producto,\n" +
-            " proveedores,\n" +
-            " categoria,\n" +
-            " estado\n" +
-            " \n" +
-            "WHERE producto.id_proveedor=proveedores.nit\n" +
-            "AND producto.id_categoria=categoria.id_categoria\n" +
-            "AND producto.id_estado=estado.id_estado\n" +
-            "AND producto.id_estado =1";
+            String sql = "SELECT producto.nombre AS 'Nombre', \n" +
+"		 producto.descripcion AS 'Descripcion', \n" +
+"		 producto.precio_compra AS 'Precio_Compra', \n" +
+"		 producto.precio_venta AS 'Precio_Venta', \n" +
+"		 producto.cantidad_existencia AS 'Existencia', \n" +
+"		 proveedores.nombre AS 'Proveedor', \n" +
+"		 categoria.nombre AS 'Categoria', \n" +
+"		 estado.descripcion AS 'Estado',\n" +
+"		 producto.id_categoria,\n" +
+"		 producto.id_estado,\n" +
+"		 producto.id_proveedor\n" +
+"\n" +
+"FROM producto, \n" +
+"	  proveedores, \n" +
+"	  categoria, \n" +
+"	  estado \n" +
+"	  \n" +
+"WHERE producto.id_proveedor=proveedores.nit \n" +
+"AND producto.id_categoria=categoria.id_categoria \n" +
+"AND producto.id_estado=estado.id_estado \n" +
+"AND producto.id_estado =1";
             ResultSet rs = st.executeQuery(sql);            
             if(rs.next()){
                 rs.beforeFirst();
-                while(rs.next()){ ListaProducto.add(new Producto(rs.getString("producto.nombre"),   
-                    rs.getString("producto.descripcion"),
-                    rs.getFloat("producto.precio_compra"),
-                    rs.getFloat("producto.precio_venta"),
-                    rs.getInt("producto.cantidad_existencia"),
-                    rs.getString("producto.id_proveedor"),
-                    rs.getInt("producto.id_categoria"),
-                    rs.getInt("producto.id_estado")));
+                while(rs.next()){ ListaProducto.add(new Producto(rs.getString("Nombre"),   
+                    rs.getString("Descripcion"),
+                    rs.getFloat("Precio_Compra"),
+                    rs.getFloat("Precio_Venta"),
+                    rs.getInt("Existencia"),
+                    rs.getInt("id_proveedor"),
+                    rs.getString("Proveedor"),
+                    rs.getInt("id_categoria"),
+                    rs.getString("Categoria"),
+                    rs.getInt("id_estado"),
+                    rs.getString("Estado")));
                     }
             }
             else{
             }
+            conn.close();
         } catch(ConnectException | SQLException ex){
             ex.printStackTrace();                    
         }        
