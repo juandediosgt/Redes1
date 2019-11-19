@@ -93,7 +93,7 @@ public class ActualizarProductoBean {
         this.setActEstado(false);
     }
     /**
-     * Metodo que limpia los campos
+     * Metodo que realiza una nueva busqueda
      */
     public void nuevaBusqueda(){
         bloquearCampos();

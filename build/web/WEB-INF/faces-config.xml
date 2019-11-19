@@ -157,19 +157,34 @@
         <from-view-id>/MenuProveedores.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>nuevo</from-outcome>
-            <to-view-id>/menuProducto.xhtml</to-view-id>
+            <to-view-id>/nuevoProveedor.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>consulta</from-outcome>
-            <to-view-id>/menuProducto.xhtml</to-view-id>
+            <to-view-id>/consultarProveedor.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>actualizar</from-outcome>
-            <to-view-id>/menuProducto.xhtml</to-view-id>
+            <to-view-id>/actProveedor.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>regresar</from-outcome>
             <to-view-id>/moduloCompras.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/nuevoProveedor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/MenuProveedores.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/actProveedor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/MenuProveedores.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -321,6 +336,42 @@
         <description>Db action que maneja las conexiones a la base de datos que se necesitan en el inventario</description>
         <managed-bean-name>inventarioDbAction</managed-bean-name>
         <managed-bean-class>dbActions.inventarioDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica del nuevo proveedor</description>
+        <managed-bean-name>nuevoProveedorBean</managed-bean-name>
+        <managed-bean-class>beans.nuevoProveedorBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica de actualizar proveedores</description>
+        <managed-bean-name>actProveedorBean</managed-bean-name>
+        <managed-bean-class>beans.actProveedorBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica de consultar proveedor</description>
+        <managed-bean-name>consultarProveedorBean</managed-bean-name>
+        <managed-bean-class>beans.consultarProveedorBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean que gestiona la logica de actualizar proveedor a nvel de modelo</description>
+        <managed-bean-name>actProveedorDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.actProveedorDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean que gestiona la logica de consultar proveedor a nivel de modelo</description>
+        <managed-bean-name>consultarProveedorDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.consultarProveedorDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean que gestiona la logica de nuevo proveedor a nivel de modelo</description>
+        <managed-bean-name>nuevoProveedorDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.nuevoProveedorDbAction</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
 </faces-config>

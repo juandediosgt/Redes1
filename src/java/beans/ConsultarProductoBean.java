@@ -5,6 +5,7 @@
  */
 package beans;
 
+import java.io.Serializable;
 import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ import utils.Conexion;
  *
  * @author Juan de Dios
  */
-public class ConsultarProductoBean {
+public class ConsultarProductoBean implements Serializable {
 
     /**
      * Creates a new instance of ConsultarProductoBean

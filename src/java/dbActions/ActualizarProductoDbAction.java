@@ -61,7 +61,18 @@ public class ActualizarProductoDbAction {
         }        
         return resultado;
     }
-     
+     /**
+      * Metodo para actualizar informacion en bd
+      * @param nombre
+      * @param descripcion
+      * @param precio_compra
+      * @param precio_venta
+      * @param cantidad_existencia
+      * @param proveedor
+      * @param categoria
+      * @param estado
+      * @return 
+      */
       public int actProducto(String nombre, String descripcion, float precio_compra, float precio_venta, int cantidad_existencia, String proveedor, int categoria, int estado) {
         int result = 0;
         try {

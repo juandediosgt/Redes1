@@ -35,7 +35,7 @@ public class Catalogos {
             Conexion conexion = new Conexion();
             conect = conexion.connect();
             Statement stmt = conect.createStatement(ResultSet. TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String query = "select * from estado";
+            String query = "SELECT * FROM estado";
             ResultSet rs = stmt.executeQuery(query);
             if (rs.last()) {
                 int size = rs.getRow();
