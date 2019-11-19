@@ -374,4 +374,10 @@
         <managed-bean-class>dbActions.nuevoProveedorDbAction</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <description>bean que gestiona los metodos de la vista de factura compra</description>
+        <managed-bean-name>facturaCompraBean</managed-bean-name>
+        <managed-bean-class>beans.FacturaCompraBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
 </faces-config>
