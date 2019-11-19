@@ -19,7 +19,6 @@ public class NuevoProductoBean {
     private String descripcion;
     private float precio_compra;
     private float precio_venta;
-    private int cantidad_existencia;
     private String proveedor;
     private int categoria;
     private int id_estado;
@@ -41,7 +40,6 @@ public class NuevoProductoBean {
         this.descripcion=null;
         this.precio_compra=0;
         this.precio_venta=0;
-        this.cantidad_existencia=0;
         this.proveedor=null;
         this.categoria=0;
     }
@@ -69,11 +67,11 @@ public class NuevoProductoBean {
     }
     
     public void agregarProducto(){
-       if(this.getNombre().trim().equals("") || this.getDescripcion().trim().equals("") || this.getPrecio_compra() ==0 || this.getPrecio_venta() ==0 || this.getCantidad_existencia() ==0 || this.getCategoria() ==0 || this.getProveedor().trim().equals("") ){
+       if(this.getNombre().trim().equals("") || this.getDescripcion().trim().equals("") || this.getPrecio_compra() ==0 || this.getPrecio_venta() ==0 || this.getCategoria() ==0 || this.getProveedor().trim().equals("") ){
             Messages.warningMessage("Advertencia", "Debe llenar los campos requeridos");
         } else{
             NuevoProductoDbAction user = new NuevoProductoDbAction();
-            int resultado =user.ingresarAlumno(this.getNombre(), this.getDescripcion(), this.getPrecio_compra(), this.getPrecio_venta(), this.getCantidad_existencia(), this.getProveedor(), this.getCategoria());
+            int resultado =user.ingresarProducto(this.getNombre(), this.getDescripcion(), this.getPrecio_venta(), this.getPrecio_compra(), 0, this.getProveedor(), this.getCategoria());
             if(resultado == 1){
                 Messages.infoMessage("EXITO", "Producto ingresado exitosamente");
                 limpiarCampos();
@@ -132,15 +130,6 @@ public class NuevoProductoBean {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    public int getCantidad_existencia() {
-        return cantidad_existencia;
-    }
-
-    public void setCantidad_existencia(int cantidad_existencia) {
-        this.cantidad_existencia = cantidad_existencia;
-    }
-
     public float getPrecio_compra() {
         return precio_compra;
     }

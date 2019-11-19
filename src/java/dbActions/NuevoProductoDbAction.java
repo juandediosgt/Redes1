@@ -34,13 +34,13 @@ public class NuevoProductoDbAction {
      * @param id_categoria
      * @return 
      */
-    public int ingresarAlumno(String nombre, String descripcion, float precio_compra, float precio_venta, int cantidad_existencia, String id_proveedor, int id_categoria) {
+    public int ingresarProducto(String nombre, String descripcion, float precio_compra, float precio_venta, int cantidad_existencia, String id_proveedor, int id_categoria) {
         int result = 0;
         try {
             Connection conn;
             Conexion newConexion = new Conexion();
             conn = newConexion.connect();
-            String sql = "insert into producto(nombre, descripcion, precio_compra, precio_venta, cantidad_existencia, id_proveedor, id_categoria, id_estado) values('"+nombre+"', '"+descripcion+"',"+precio_compra+","+precio_venta+","+cantidad_existencia+",'"+id_proveedor+"', "+id_categoria+", 1)";
+            String sql = "insert into producto(nombre, descripcion, precio_venta, precio_compra,  cantidad_existencia, id_proveedor, id_categoria, id_estado) values('"+nombre+"', '"+descripcion+"',"+precio_compra+","+precio_venta+","+cantidad_existencia+",'"+id_proveedor+"', "+id_categoria+", 1)";
             Statement pst = conn.createStatement();
             int resultado = pst.executeUpdate(sql);
             if (resultado == 1) {

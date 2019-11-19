@@ -86,13 +86,6 @@
                                 <p:inputNumber  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " value="#{nuevoProductoBean.precio_venta}"/>
                             </td>
                         </tr>
-                        <tr align="left">
-                            <td>
-                                <p:outputLabel value= "Existencias del Producto"/>
-                                <br/>
-                                <p:inputText  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " onkeyup="return ValNumero(this);" value="#{nuevoProductoBean.cantidad_existencia}"/>
-                            </td>
-                        </tr>
                         <tr>
                             <td align="center" colspan="4">
                                 <p:commandButton value="Ingresar Producto" action="#{nuevoProductoBean.agregarProducto()}" update="nuevoProductoForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
