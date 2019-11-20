@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Templates/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml">
+
+    <ui:define name="content">
+        <script language="javascript" type="text/javascript">
+
+            //* Este Codigo permite Validar que sea un campo Numerico
+            function Solo_Numerico(variable) {
+                Numer = parseInt(variable);
+                if (isNaN(Numer)) {
+                    return "";
+                }
+                return Numer;
+            }
+            function ValNumero(Control) {
+                Control.value = Solo_Numerico(Control.value);
+            }
+            //* Fin del Codigo para Validar que sea un campo Numerico
+        </script>
+        <script type="text/javascript">
+            //* Este Codigo permite Validar que sea un campo de solo texto
+            function validar(e) { // 1
+                tecla = (document.all) ? e.keyCode : e.which; // 2
+                if (tecla == 8)
+                    return true; // 3
+                patron = /[A-Za-z\sáéíóú]/; // 4
+                te = String.fromCharCode(tecla); // 5
+                return patron.test(te); // 6
+            }
+        </script>
+        <br/>
+        <br/>
+        <div align="center" style="margin-top: 50px; margin-right: 50px">
+            <h2 style="color: white">Sistema de gestión de Inventarios</h2>
+            <h1 style="color: white">Factura Venta</h1>
+            <h:form id="nuevaFacturaForm">
+                <p:growl id="growl" showDetail="true" life="4000"/>
+                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 600px">
+                    <table align="center" cellspacing="20" style=" font-weight: bold; color: #0075A2">
+                        <tr align="left">
+                            <td >
+                                <p:outputLabel value= "No. Factura"/>
+                                <br/>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadonofac}" value="#{facturaCompraBean.nofactura}"/>
+                            </td>
+                            <td >
+                                <p:outputLabel value= "Fecha"/>
+                                <br/>
+                                <p:datePicker id="buttonbarinicial" value="#{facturaCompraBean.date10}" showButtonBar="true" disabled="#{facturaCompraBean.estadodate}"/>
+                            </td>
+                        </tr>
+                        <tr align="left">
+                            <td >
+                                <p:outputLabel value= "NIT"/>
+                                <br/>
+                                <p:inputMask  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" value="#{nuevoProveedorBean.nit}" mask="9999999-a" />
+                            </td>
+                            <td >
+                                <p:outputLabel value= "Nombre"/>
+                                <br/>
+                                <p:inputText  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " onkeypress="return validar(event)" value="#{nuevoProveedorBean.nombre}"/>
+                            </td>
+                        </tr>
+                        <tr align="left">
+                            <td >
+                                <p:outputLabel value= "Dirección"/>
+                                <br/>
+                                <p:inputText  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; "  value="#{nuevoProveedorBean.direccion}"/>
+                            </td>   
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="4">
+                                <p:commandButton value="Ingresar datos de cliente" action="#{nuevoProveedorBean.agregarProveeedor()}" update="nuevaFacturaForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
+                            </td>
+                        </tr>
+                        <tr align="left">
+                            <td>
+                                <p:outputLabel value= "Producto"/>
+                                <br/>
+                                <p:selectOneMenu id="producto" value="#{facturaCompraBean.producto}" style="width: 185px" disabled="#{facturaCompraBean.estadopro}" filter="true" >
+                                    <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
+                                    <f:selectItems value="#{facturaCompraBean.listaProductos}"  />
+                                </p:selectOneMenu>
+                            </td>
+                            <td >
+                                <p:outputLabel value= "Cantidad:"/>
+                                <br/>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadocant}" value="#{facturaCompraBean.cantidad}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="4">
+                                <p:commandButton value="AÑADIR PRODUCTO" action="#{facturaCompraBean.agregarProducto()}" update="nuevaFacturaForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
+                            </td>
+                        </tr>
+                        <tr border="1px">
+                            <td colspan="4" align="right">
+                                <p:commandLink update="nuevoProveedorForm, growl" action="#{nuevoProveedorBean.irmenuProveedor()}" title="Presione el boton para regresar al Ménu Producto">
+                                    <p:graphicImage value="/Images/icon_atras.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                                 <br/>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>

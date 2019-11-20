@@ -78,6 +78,10 @@
             <to-view-id>/menuProducto.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>venta</from-outcome>
+            <to-view-id>/facturaVenta.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>error</from-outcome>
             <to-view-id>/moduloVentas.xhtml</to-view-id>
         </navigation-case>
@@ -204,6 +208,13 @@
         <navigation-case>
             <from-outcome>regresar</from-outcome>
             <to-view-id>/MenuProveedores.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/facturaVenta.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/moduloVentas.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -403,6 +414,12 @@
         <description>bean que gestiona todas las acciones en la base de datos que realiza la vista factura compra</description>
         <managed-bean-name>facturaCompraDbAction</managed-bean-name>
         <managed-bean-class>dbActions.FacturaCompraDbAction</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la logica de la factura venta</description>
+        <managed-bean-name>facturaVentaBean</managed-bean-name>
+        <managed-bean-class>beans.FacturaVentaBean</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
 </faces-config>
