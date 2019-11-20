@@ -199,6 +199,13 @@
             <to-view-id>/MenuProveedores.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/consultarProveedor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/MenuProveedores.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
     
     <managed-bean>
         <description>Bean que gestiona la logica del login</description>

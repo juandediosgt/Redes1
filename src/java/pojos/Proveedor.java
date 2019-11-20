@@ -15,6 +15,15 @@ public class Proveedor {
      private String direccion;
      private int telefono;
      private int id_estado;
+
+    public Proveedor(String nit, String nombre, String direccion, int telefono) {
+        this.nit = nit;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+     
+     
     /**
      * Creates a new instance of Proveedor
      */
@@ -62,6 +71,5 @@ public class Proveedor {
         this.id_estado = id_estado;
     }
 
-   
     
 }
