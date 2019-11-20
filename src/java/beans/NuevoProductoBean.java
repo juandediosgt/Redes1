@@ -19,9 +19,9 @@ public class NuevoProductoBean {
     private String descripcion;
     private float precio_compra;
     private float precio_venta;
-    private String proveedor;
     private int categoria;
     private int id_estado;
+    private String proveedor;
     private SelectItem[] listaProveedor;
     private SelectItem[] listaCategorias;
     
@@ -67,6 +67,8 @@ public class NuevoProductoBean {
     }
     
     public void agregarProducto(){
+            
+            
        if(this.getNombre().trim().equals("") || this.getDescripcion().trim().equals("") || this.getPrecio_compra() ==0 || this.getPrecio_venta() ==0 || this.getCategoria() ==0 || this.getProveedor().trim().equals("") ){
             Messages.warningMessage("Advertencia", "Debe llenar los campos requeridos");
         } else{

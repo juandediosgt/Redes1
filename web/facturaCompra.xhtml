@@ -39,57 +39,67 @@
         <div align="center" style="margin-top: 50px; margin-right: 50px">
             <h2 style="color: white">Sistema de gestión de Inventarios</h2>
             <h1 style="color: white">Nueva Factura Compras</h1>
-            <h:form id="nuevoProductoForm">
+            <h:form id="nuevaFacturaForm">
                 <p:growl id="growl" showDetail="true" life="4000"/>
-                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 550px">
+                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 900px">
                     <table align="center" cellspacing="20" style=" font-weight: bold; color: #0075A2">
                         <tr align="left">
                             <td >
                                 <p:outputLabel value= "No. Factura"/>
                                 <br/>
-                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; "  onkeypress="return validar(event)" value="#{nuevoProductoBean.nombre}"/>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadonofac}" value="#{facturaCompraBean.nofactura}"/>
                             </td>
                             <td >
                                 <p:outputLabel value= "Fecha"/>
                                 <br/>
-                                <p:inputText  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; "  value="#{nuevoProductoBean.descripcion}"/>
+                                <p:datePicker id="buttonbarinicial" value="#{facturaCompraBean.date10}" showButtonBar="true" disabled="#{facturaCompraBean.estadodate}"/>
                             </td>
                         </tr>
                         <tr align="left">
                             <td>
                                 <p:outputLabel value= "Proveedor"/>
                                 <br/>
-                                <p:selectOneMenu id="proveedor" value="#{nuevoProductoBean.proveedor}" style="width: 350px" >
+                                <p:selectOneMenu id="proveedor" value="#{facturaCompraBean.proveedor}" style="width: 350px"  disabled="#{facturaCompraBean.estadonoprov}">
                                     <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
-                                    <f:selectItems value="#{nuevoProductoBean.listaProveedor}"  />
+                                    <f:selectItems value="#{facturaCompraBean.listaProveedor}"  />
                                 </p:selectOneMenu>
                             </td>
                            
                         </tr>
                         <tr>
                             <td align="center" colspan="4">
-                                <p:commandButton value="Agregar producto" action="#{nuevoProductoBean.agregarProducto()}" update="nuevoProductoForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
+                                <p:commandButton value="REGISTRAR DATOS FACTURA" action="#{facturaCompraBean.agregarFactura()}" update="nuevaFacturaForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
                             </td>
                         </tr>
                         <tr align="left">
                             <td>
                                 <p:outputLabel value= "Producto"/>
                                 <br/>
-                                <p:selectOneMenu id="producto" value="#{nuevoProductoBean.proveedor}" style="width: 350px" >
+                                <p:selectOneMenu id="producto" value="#{facturaCompraBean.producto}" style="width: 350px" disabled="#{facturaCompraBean.estadopro}" filter="true" >
                                     <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
-                                    <f:selectItems value="#{nuevoProductoBean.listaProveedor}"  />
+                                    <f:selectItems value="#{facturaCompraBean.listaProductos}"  />
                                 </p:selectOneMenu>
                             </td>
                             <td >
                                 <p:outputLabel value= "Cantidad:"/>
                                 <br/>
-                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; "  onkeypress="return validar(event)" value="#{nuevoProductoBean.nombre}"/>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadocant}" value="#{facturaCompraBean.cantidad}"/>
                             </td>
-                           
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="4">
+                                <p:commandButton value="AÑADIR PRODUCTO" action="#{facturaCompraBean.agregarProducto()}" update="nuevaFacturaForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
+                            </td>
                         </tr>
                         <tr border="1px">
                             <td colspan="4" align="right">
-                                <p:commandLink update="nuevoProductoForm, growl" action="#{nuevoProductoBean.irmenuProducto()}" title="Presione el boton para regresar al Ménu Producto">
+                                <p:commandLink update="nuevaFacturaForm, growl" action="#{facturaCompraBean.limpiar()}" title="Presione el boton para ingresar nueva factura">
+                                    <p:graphicImage value="/Images/broom.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                                 <br/>
+                            </td>
+                            <td colspan="4" align="right">
+                                <p:commandLink update="nuevaFacturaForm, growl" action="#{facturaCompraBean.irModuloCompras()}" title="Presione el boton para regresar al modulo compras">
                                     <p:graphicImage value="/Images/icon_atras.png" width="50px" height="50px"/>
                                 </p:commandLink>
                                  <br/>

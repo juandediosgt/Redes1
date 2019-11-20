@@ -34,6 +34,9 @@ public class ModuloComprasBean implements Serializable {
         String resultado="inventario";
         return resultado;
     }
-    
+    public String irFacturaCompras(){
+        String resultado="fcompras";
+        return resultado;
+    }
     
 }

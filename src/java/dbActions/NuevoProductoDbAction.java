@@ -9,6 +9,7 @@ import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import utils.Conexion;
 
 /**
@@ -37,6 +38,7 @@ public class NuevoProductoDbAction {
     public int ingresarProducto(String nombre, String descripcion, float precio_compra, float precio_venta, int cantidad_existencia, String id_proveedor, int id_categoria) {
         int result = 0;
         try {
+            
             Connection conn;
             Conexion newConexion = new Conexion();
             conn = newConexion.connect();
@@ -48,6 +50,7 @@ public class NuevoProductoDbAction {
             } else {
                 result = resultado;                
             }
+            conn.close();
         } catch (ConnectException | SQLException ex) {
             ex.printStackTrace();
         }

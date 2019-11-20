@@ -58,6 +58,10 @@
             <to-view-id>/MenuProveedores.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>fcompras</from-outcome>
+            <to-view-id>/facturaCompra.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>error</from-outcome>
             <to-view-id>/moduloCompras.xhtml</to-view-id>
         </navigation-case>
@@ -134,6 +138,14 @@
         <navigation-case>
             <from-outcome>atras</from-outcome>
             <to-view-id>/menuProducto.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/facturaCompra.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>regresar</from-outcome>
+            <to-view-id>/moduloCompras.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
@@ -378,6 +390,12 @@
         <description>bean que gestiona los metodos de la vista de factura compra</description>
         <managed-bean-name>facturaCompraBean</managed-bean-name>
         <managed-bean-class>beans.FacturaCompraBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>bean que gestiona todas las acciones en la base de datos que realiza la vista factura compra</description>
+        <managed-bean-name>facturaCompraDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.FacturaCompraDbAction</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
 </faces-config>
