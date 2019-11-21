@@ -27,7 +27,7 @@ public class ModuloVentasBean implements Serializable{
         return resultado;
     }
     public String facturaVenta(){
-        String resultado="venta";
+        String resultado="facturaventa";
         return resultado;
     }
     

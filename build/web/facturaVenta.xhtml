@@ -47,51 +47,51 @@
                             <td >
                                 <p:outputLabel value= "No. Factura"/>
                                 <br/>
-                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadonofac}" value="#{facturaCompraBean.nofactura}"/>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaVentaBean.actNoFactura}" value="#{facturaVentaBean.no_factura}"/>
                             </td>
                             <td >
                                 <p:outputLabel value= "Fecha"/>
                                 <br/>
-                                <p:datePicker id="buttonbarinicial" value="#{facturaCompraBean.date10}" showButtonBar="true" disabled="#{facturaCompraBean.estadodate}"/>
+                                <p:datePicker id="buttonbarinicial" value="#{facturaVentaBean.date10}" showButtonBar="true" disabled="#{facturaVentaBean.actFecha}"/>
                             </td>
                         </tr>
                         <tr align="left">
                             <td >
                                 <p:outputLabel value= "NIT"/>
                                 <br/>
-                                <p:inputMask  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" value="#{nuevoProveedorBean.nit}" mask="9999999-a" />
+                                <p:inputMask disabled="#{facturaVentaBean.actNit}" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;" value="#{facturaVentaBean.nit}" mask="9999999-a" />
                             </td>
                             <td >
                                 <p:outputLabel value= "Nombre"/>
                                 <br/>
-                                <p:inputText  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " onkeypress="return validar(event)" value="#{nuevoProveedorBean.nombre}"/>
+                                <p:inputText disabled="#{facturaVentaBean.actNombre}" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " onkeypress="return validar(event)" value="#{facturaVentaBean.nombre}"/>
                             </td>
                         </tr>
                         <tr align="left">
                             <td >
                                 <p:outputLabel value= "Dirección"/>
                                 <br/>
-                                <p:inputText  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; "  value="#{nuevoProveedorBean.direccion}"/>
+                                <p:inputText disabled="#{facturaVentaBean.actDireccion}"  style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; "  value="#{facturaVentaBean.direccion}"/>
                             </td>   
                         </tr>
                         <tr>
                             <td align="center" colspan="4">
-                                <p:commandButton value="Ingresar datos de cliente" action="#{nuevoProveedorBean.agregarProveeedor()}" update="nuevaFacturaForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
+                                <p:commandButton value="Ingresar datos de cliente" action="#{facturaVentaBean.agregarFactura()}" update="nuevaFacturaForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
                             </td>
                         </tr>
                         <tr align="left">
                             <td>
                                 <p:outputLabel value= "Producto"/>
                                 <br/>
-                                <p:selectOneMenu id="producto" value="#{facturaCompraBean.producto}" style="width: 185px" disabled="#{facturaCompraBean.estadopro}" filter="true" >
+                                <p:selectOneMenu id="producto" value="#{facturaVentaBean.producto}" style="width: 185px" disabled="#{facturaVentaBean.estadopro}" filter="true" >
                                     <f:selectItem itemValue="-1" itemLabel="Seleccione"/>
-                                    <f:selectItems value="#{facturaCompraBean.listaProductos}"  />
+                                    <f:selectItems value="#{facturaVentaBean.listaProductos}"  />
                                 </p:selectOneMenu>
                             </td>
                             <td >
                                 <p:outputLabel value= "Cantidad:"/>
                                 <br/>
-                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadocant}" value="#{facturaCompraBean.cantidad}"/>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaVentaBean.estadocant}" value="#{facturaVentaBean.cantidad}"/>
                             </td>
                         </tr>
                         <tr>
@@ -101,7 +101,7 @@
                         </tr>
                         <tr border="1px">
                             <td colspan="4" align="right">
-                                <p:commandLink update="nuevoProveedorForm, growl" action="#{nuevoProveedorBean.irmenuProveedor()}" title="Presione el boton para regresar al Ménu Producto">
+                                <p:commandLink update="nuevaFacturaForm, growl" action="#{nuevoProveedorBean.irmenuProveedor()}" title="Presione el boton para regresar al Ménu Producto">
                                     <p:graphicImage value="/Images/icon_atras.png" width="50px" height="50px"/>
                                 </p:commandLink>
                                  <br/>

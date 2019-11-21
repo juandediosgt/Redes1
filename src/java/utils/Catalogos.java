@@ -94,6 +94,37 @@ public class Catalogos {
         return options;
     }
   
+     public SelectItem[] cargarProductos() {
+        SelectItem[] options = new SelectItem[]{new SelectItem("-1", "-")};
+        try {
+            Connection conect;
+            Conexion conexion = new Conexion();
+            conect = conexion.connect();
+            Statement stmt = conect.createStatement(ResultSet. TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String query = "select id_producto, nombre from producto where id_estado = 1";
+            ResultSet rs = stmt.executeQuery(query);
+            if (rs.last()) {
+                int size = rs.getRow();
+                rs.beforeFirst();
+                options = new SelectItem[size];
+            }
+            int i = 0;
+            while (rs.next()) {
+                String id = rs.getString("id_producto");
+                String descr = rs.getString("nombre");
+                SelectItem d = new SelectItem();
+                d.setValue(id);
+                d.setLabel(descr);
+                options[i] = d;
+                i++;
+            }
+            conect.close();
+        } catch (ConnectException | SQLException ex) {
+            System.out.println("ERROR AL CARGAR LA LISTA");
+        }
+        return options;
+    }
+    
     public SelectItem[] cargarProductos(String proveedor) {
         SelectItem[] options = new SelectItem[]{new SelectItem("-1", "-")};
         try {

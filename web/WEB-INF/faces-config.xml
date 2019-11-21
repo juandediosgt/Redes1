@@ -78,7 +78,7 @@
             <to-view-id>/menuProducto.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>venta</from-outcome>
+            <from-outcome>facturaventa</from-outcome>
             <to-view-id>/facturaVenta.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
@@ -86,6 +86,7 @@
             <to-view-id>/moduloVentas.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>/nuevoUsuario.xhtml</from-view-id>
         <navigation-case>
@@ -420,6 +421,12 @@
         <description>Bean que gestiona la logica de la factura venta</description>
         <managed-bean-name>facturaVentaBean</managed-bean-name>
         <managed-bean-class>beans.FacturaVentaBean</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>ManagedBean que gestiona la logica de la factura venta a nivel de modelo</description>
+        <managed-bean-name>facturaVentaDbAction</managed-bean-name>
+        <managed-bean-class>dbActions.FacturaVentaDbAction</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
 </faces-config>
