@@ -53,7 +53,7 @@ public class FacturaCompraDbAction {
             Connection conn;
             Conexion newConexion = new Conexion();
             conn = newConexion.connect();
-            String sql = "insert into detallecompra(`idFacturaCompra`, `idProducto`, `cantidad`) VALUES ("+nofactura+", '"+producto+"', '"+cantidad+"')";
+            String sql = "insert into detalleventa(`idFacturaVenta`, `idProducto`, `cantidad`) VALUES ("+nofactura+", '"+producto+"', '"+cantidad+"')";
             Statement pst = conn.createStatement();
             int resultado = pst.executeUpdate(sql);
             if (resultado == 1) {

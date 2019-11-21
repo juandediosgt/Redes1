@@ -41,13 +41,13 @@
             <h1 style="color: white">Factura Venta</h1>
             <h:form id="nuevaFacturaForm">
                 <p:growl id="growl" showDetail="true" life="4000"/>
-                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 600px">
+                <p:panel style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:white; text-align: center; background-color: white; width: 550px">
                     <table align="center" cellspacing="20" style=" font-weight: bold; color: #0075A2">
                         <tr align="left">
                             <td >
                                 <p:outputLabel value= "No. Factura"/>
                                 <br/>
-                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaVentaBean.actNoFactura}" value="#{facturaVentaBean.no_factura}"/>
+                                <p:inputText onkeyup="return ValNumero(this);" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaVentaBean.actNoFactura}" value="#{facturaVentaBean.no_factura}"/>
                             </td>
                             <td >
                                 <p:outputLabel value= "Fecha"/>
@@ -91,16 +91,22 @@
                             <td >
                                 <p:outputLabel value= "Cantidad:"/>
                                 <br/>
-                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaVentaBean.estadocant}" value="#{facturaVentaBean.cantidad}"/>
+                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaVentaBean.estadocant}" value="#{facturaVentaBean.cantidad}" onkeyup="return ValNumero(this);"/>
                             </td>
                         </tr>
                         <tr>
                             <td align="center" colspan="4">
-                                <p:commandButton value="AÑADIR PRODUCTO" action="#{facturaCompraBean.agregarProducto()}" update="nuevaFacturaForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
+                                <p:commandButton value="AÑADIR PRODUCTO" action="#{facturaVentaBean.agregarProducto()}" update="nuevaFacturaForm"  style=" border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-color:#0075A2; background:#0075A2 ; font-weight: bold;color: white"/>
                             </td>
                         </tr>
-                        <tr border="1px">
-                            <td colspan="4" align="right">
+                        <tr  align=" left">
+                            <td>
+                                <p:commandLink update="nuevaFacturaForm, growl" action="#{facturaVentaBean.nuevaFactura()}" title="Presione el boton para Nueva Factura">
+                                    <p:graphicImage value="/Images/icon_new.png" width="50px" height="50px"/>
+                                </p:commandLink>
+                                 <br/>
+                            </td>
+                            <td >
                                 <p:commandLink update="nuevaFacturaForm, growl" action="#{nuevoProveedorBean.irmenuProveedor()}" title="Presione el boton para regresar al Ménu Producto">
                                     <p:graphicImage value="/Images/icon_atras.png" width="50px" height="50px"/>
                                 </p:commandLink>

@@ -7,6 +7,8 @@ package beans;
 
 import dbActions.FacturaCompraDbAction;
 import dbActions.FacturaVentaDbAction;
+import java.net.ConnectException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -49,6 +51,7 @@ public class FacturaVentaBean {
     private boolean Estadopro;
     private boolean Estadocant;
     private boolean actFecha;
+    
 
     @PostConstruct
     public void init() {
@@ -117,7 +120,43 @@ public class FacturaVentaBean {
             }
         }
     }
+     
+     public void agregarProducto(){
+         try{
+       if(this.getProducto()==0 || this.getCantidad()==0 ){
+            Messages.warningMessage("Advertencia", "Debe llenar los campos requeridos"+this.getProducto()+this.getCantidad());
+        } else{
+            FacturaVentaDbAction user = new FacturaVentaDbAction();
+            int resultado =user.ingresarProducto(this.getNo_factura(), this.getProducto(), this.getCantidad());
+            if(resultado == 1){
+                Messages.infoMessage("EXITO", "Producto añadido a su venta");
+                this.producto = 0;
+                this.cantidad = 0;
+            } else{
+                Messages.errorMessage("ERROR", "Producto no añadido, no hay suficientes productos");
+            }
+        }
+       } catch(Exception ex){
+            ex.printStackTrace();                    
+        }    
+        }
+   
+    public void nuevaFactura(){
+        this.setActNombre(false);
+        this.setActNit(false);
+        this.setActNoFactura(false);
+        this.setActDireccion(false);
+        this.setActFecha(false);
+        this.setEstadocant(true);
+        this.setEstadopro(true);
+        this.nit=null;
+        this.nombre=null;
+        this.producto=0;
+        this.cantidad=0;
+        this.direccion=null;
+        this.no_factura=0;
     
+    }
     
     //Metodos Get Y set
     

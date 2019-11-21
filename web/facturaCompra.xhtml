@@ -47,7 +47,7 @@
                             <td >
                                 <p:outputLabel value= "No. Factura"/>
                                 <br/>
-                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadonofac}" value="#{facturaCompraBean.nofactura}"/>
+                                <p:inputText onkeyup="return ValNumero(this);" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadonofac}" value="#{facturaCompraBean.nofactura}"/>
                             </td>
                             <td >
                                 <p:outputLabel value= "Fecha"/>
@@ -83,7 +83,7 @@
                             <td >
                                 <p:outputLabel value= "Cantidad:"/>
                                 <br/>
-                                <p:inputText style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadocant}" value="#{facturaCompraBean.cantidad}"/>
+                                <p:inputText onkeyup="return ValNumero(this);" style=" border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; " disabled="#{facturaCompraBean.estadocant}" value="#{facturaCompraBean.cantidad}"/>
                             </td>
                         </tr>
                         <tr>
